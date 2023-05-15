@@ -4,7 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 /**
  * The class containing your tests for the {@link Demo} class.  Make sure you
@@ -13,6 +13,61 @@ import static org.junit.Assert.assertEquals;
  * {@link Demo#isTriangle(double, double, double)}).
  */
 public class DemoTest {
+
+    @Test
+    public void testIsTriangle1() {
+        assertTrue(Demo.isTriangle(3,5,6));
+    }
+
+    @Test
+    public void testIsTriangle2() {
+        assertTrue(Demo.isTriangle(10,15,16));
+    }
+    @Test
+    public void testIsTriangle3() {
+        assertTrue(Demo.isTriangle(7,9,14));
+    }
+    @Test
+    public void testIsTriangle4() {
+        assertTrue(Demo.isTriangle(13,15,16));
+    }
+    @Test
+    public void testIsTriangle5() {
+        assertTrue(Demo.isTriangle(4,7,10));
+    }
+
+    @Test
+    public void testIsNotTriangle1() {
+        assertFalse(Demo.isTriangle(1,2,3));
+    }
+    @Test
+    public void testIsNotTriangle2() {
+        assertFalse(Demo.isTriangle(0,4,7));
+    }
+
+    @Test
+    public void testIsNotTriangle3() {
+        assertFalse(Demo.isTriangle(10,1,7));
+    }
+
+    @Test
+    public void testIsNotTriangle4() {
+        assertFalse(Demo.isTriangle(1,1,3));
+    }
+
+    @Test
+    public void testIsNotTriangle5() {
+        assertFalse(Demo.isTriangle(0, 0, 0));
+    }
+    @Test
+    public void testIsNotTriangle6() {
+        assertFalse(Demo.isTriangle(7,2,10));
+    }
+    @Test
+    public void testIsNotTriangle7() {
+        assertFalse(Demo.isTriangle(-1,10, 14));
+    }
+
 
     @Test
     public void mainTestInput() {

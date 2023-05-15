@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * The class containing your tests for the {@link Demo} class.  Make sure you
@@ -13,6 +14,29 @@ import static org.junit.Assert.assertEquals;
  * {@link Demo#isTriangle(double, double, double)}).
  */
 public class DemoTest {
+
+    @Test
+    public void testIsTriangle1() {
+        assertTrue(Demo.isTriangle(3,5,6));
+    }
+
+    @Test
+    public void testIsTriangle2() {
+        assertTrue(Demo.isTriangle(10,15,16));
+    }
+    @Test
+    public void testIsTriangle3() {
+        assertTrue(Demo.isTriangle(7,9,14));
+    }
+    @Test
+    public void testIsTriangle4() {
+        assertTrue(Demo.isTriangle(13,15,16));
+    }
+    @Test
+    public void testIsTriangle5() {
+        assertTrue(Demo.isTriangle(4,7,10));
+    }
+
 
     @Test
     public void mainTestInput() {

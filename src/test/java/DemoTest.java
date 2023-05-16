@@ -15,64 +15,62 @@ import static org.junit.Assert.*;
 public class DemoTest {
 
     @Test
-    public void testIsTriangle1() {
-        assertTrue(Demo.isTriangle(3,5,6));
+    public void test_is_triangle_1() {
+        assertTrue(Demo.isTriangle(3,4,5));
     }
 
     @Test
-    public void testIsTriangle2() {
-        assertTrue(Demo.isTriangle(10,15,16));
-    }
-    @Test
-    public void testIsTriangle3() {
-        assertTrue(Demo.isTriangle(7,9,14));
-    }
-    @Test
-    public void testIsTriangle4() {
-        assertTrue(Demo.isTriangle(13,15,16));
-    }
-    @Test
-    public void testIsTriangle5() {
-        assertTrue(Demo.isTriangle(4,7,10));
+    public void test_is_triangle_2() {
+        assertTrue(Demo.isTriangle(5,12,13));
     }
 
     @Test
-    public void testIsNotTriangle1() {
-        assertFalse(Demo.isTriangle(1,2,3));
-    }
-    @Test
-    public void testIsNotTriangle2() {
-        assertFalse(Demo.isTriangle(0,4,7));
+    public void test_is_triangle_3() {
+        assertTrue(Demo.isTriangle(5,13,12));
     }
 
     @Test
-    public void testIsNotTriangle3() {
-        assertFalse(Demo.isTriangle(10,1,7));
+    public void test_is_triangle_4() {
+        assertTrue(Demo.isTriangle(12,5,13));
     }
 
     @Test
-    public void testIsNotTriangle4() {
-        assertFalse(Demo.isTriangle(1,1,3));
+    public void test_is_triangle_5() {
+        assertTrue(Demo.isTriangle(12,13,5));
     }
 
     @Test
-    public void testIsNotTriangle5() {
-        assertFalse(Demo.isTriangle(0, 0, 0));
+    public void test_is_NOT_triangle_1() {
+        assertFalse(Demo.isTriangle(5,7,13));
     }
     @Test
-    public void testIsNotTriangle6() {
-        assertFalse(Demo.isTriangle(7,2,10));
-    }
-    @Test
-    public void testIsNotTriangle7() {
-        assertFalse(Demo.isTriangle(-1,10, 14));
+    public void test_is_NOT_triangle_2() {
+        assertFalse(Demo.isTriangle(5,13,7));
     }
 
+    @Test
+    public void test_is_NOT_triangle_3() {
+        assertFalse(Demo.isTriangle(13,5,7));
+    }
+
+    @Test
+    public void test_is_NOT_triangle_4() {
+        assertFalse(Demo.isTriangle(13,7,5));
+    }
+    @Test
+    public void test_is_NOT_triangle_5() {
+        assertFalse(Demo.isTriangle(5,9,3));
+    }
+
+    @Test
+    public void test_is_NOT_triangle_6() {
+        assertFalse(Demo.isTriangle(1,2,-1));
+    }
 
     @Test
     public void mainTestInput() {
         //setup
-        String input = "5\n12\n18\n";
+        String input = "5\n13\n12\n";
 
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -85,10 +83,10 @@ public class DemoTest {
         Demo.main(args);
 
         //expect
-        String consoleOut = "Enter side 1: \n";
-        consoleOut += "Enter side 2: \n";
-        consoleOut += "Enter side 3: \n";
-        consoleOut += "This is a triangle.\n";
+        String consoleOut = "Enter side 1: " + System.getProperty("line.separator");
+        consoleOut += "Enter side 2: " + System.getProperty("line.separator");
+        consoleOut += "Enter side 3: " + System.getProperty("line.separator");
+        consoleOut += "This is a triangle." + System.getProperty("line.separator");
 
         assertEquals(consoleOut, out.toString());
     }

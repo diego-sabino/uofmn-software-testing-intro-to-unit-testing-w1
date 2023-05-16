@@ -13,6 +13,29 @@ import static org.junit.Assert.*;
  * {@link Demo#isTriangle(double, double, double)}).
  */
 public class DemoTest {
+    @Test
+    public void mainTestInput() {
+        //setup
+        String input = "5\n13\n12\n";
+
+        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        //invoke
+        String[] args = {};
+        Demo.main(args);
+
+        //expect
+        String consoleOut = "Enter side 1: " + System.getProperty("line.separator");
+        consoleOut += "Enter side 2: " + System.getProperty("line.separator");
+        consoleOut += "Enter side 3: " + System.getProperty("line.separator");
+        consoleOut += "This is a triangle." + System.getProperty("line.separator");
+
+        assertEquals(consoleOut, out.toString());
+    }
 
     @Test
     public void test_is_triangle_1() {
@@ -66,29 +89,4 @@ public class DemoTest {
     public void test_is_NOT_triangle_6() {
         assertFalse(Demo.isTriangle(1,2,-1));
     }
-
-    @Test
-    public void mainTestInput() {
-        //setup
-        String input = "5\n13\n12\n";
-
-        ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
-
-        //invoke
-        String[] args = {};
-        Demo.main(args);
-
-        //expect
-        String consoleOut = "Enter side 1: " + System.getProperty("line.separator");
-        consoleOut += "Enter side 2: " + System.getProperty("line.separator");
-        consoleOut += "Enter side 3: " + System.getProperty("line.separator");
-        consoleOut += "This is a triangle." + System.getProperty("line.separator");
-
-        assertEquals(consoleOut, out.toString());
-    }
-
 }
